@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>తెలంగాణ పర్యాటకం - అద్భుతమైన ప్రదేశాల సమాహారం | Telangana Tourism</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mandali&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Ready4Launch runtime monitor -->
+  <script>
+    window.onerror = function(msg, src, line, col, err) {
+      try {
+        fetch('https://your-actual-render-url.onrender.com/api/telemetry/report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            appPath: window.location.pathname,
+            errorMsg: msg,
+            source: src,
+            line: line,
+            stackTrace: err ? err.stack : ''
+          })
+        });
+      } catch (_) {}
+      return true; // suppress visual error overlay
+    };
+  </script>
+</head>
+<body>
+
+  <!-- Ambient Light Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo">
+        <span class="logo-icon">🏛️</span>
+        <span class="logo-text">తెలంగాణ <span class="highlight">టూరిజం</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#home">హోమ్</a>
+        <a href="#destinations">పర్యాటక ప్రాంతాలు</a>
+        <a href="#planner">టూర్ ప్లానర్</a>
+        <a href="#saved">సేవ్ చేసినవి (<span id="saved-count">0</span>)</a>
+        <a href="#reviews">సమీక్షలు</a>
+        <a href="#contact">సంప్రదించండి</a>
+      </nav>
+      <button class="btn btn-sm btn-ghost mobile-menu-btn" id="menu-toggle" aria-label="మెనూ">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-content animate">
+      <div class="badge">✨ తెలంగాణ రాష్ట్ర అధికారిక పర్యాటక మార్గదర్శి</div>
+      <h1 class="headline">అద్భుత తెలంగాణను <br><span class="gradient-text">అన్వేషించండి</span></h1>
+      <p class="hero-subtext">
+        చారిత్రాత్మక కోటలు, కనువిందు చేసే జలపాతాలు, శతాబ్దాల నాటి ఆధ్యాత్మిక క్షేత్రాలు మరియు సుందరమైన ప్రకృతి దృశ్యాలను ఒకే చోట కనుగొనండి.
+      </p>
+
+      <!-- Hero Quick Search Bar -->
+      <div class="hero-search-box card">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="hero-search" placeholder="ఉదా: చార్మినార్, బొగత జలపాతం, రామప్ప ఆలయం..." />
+        </div>
+        <button class="btn" id="hero-search-btn">వెతకండి</button>
+      </div>
+
+      <!-- Category Quick Filter Tags -->
+      <div class="hero-tags">
+        <span class="tag-label">పాపులర్ ఫిల్టర్లు:</span>
+        <button class="tag-btn active" data-filter="all">అన్నీ</button>
+        <button class="tag-btn" data-filter="heritage">కోటలు & చరిత్ర</button>
+        <button class="tag-btn" data-filter="waterfall">జలపాతాలు</button>
+        <button class="tag-btn" data-filter="spiritual">దేవాలయాలు</button>
+        <button class="tag-btn" data-filter="nature">ప్రకృతి & సరస్సులు</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Statistics Highlights -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      <div class="stat-card card">
+        <h3>33</h3>
+        <p>అందమైన జిల్లాలు</p>
+      </div>
+      <div class="stat-card card">
+        <h3>100+</h3>
+        <p>చారిత్రక & పర్యాటక ప్రదేశాలు</p>
+      </div>
+      <div class="stat-card card">
+        <h3>1200+</h3>
+        <p>సంవత్సరాల గొప్ప చరిత్ర</p>
+      </div>
+      <div class="stat-card card">
+        <h3>4.9 ★</h3>
+        <p>పర్యాటకుల సంతృప్తి రేటింగ్</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinations Explorer Section -->
+  <section id="destinations" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">ప్రసిద్ధ <span class="gradient-text">పర్యాటక ప్రాంతాలు</span></h2>
+        <p class="section-desc">తెలంగాణలోని అత్యంత ఆకర్షణీయమైన ప్రాంతాలను సందర్శించండి</p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="controls-bar">
+        <div class="filter-buttons" id="category-filters">
+          <button class="filter-chip active" data-cat="all">అన్ని ప్రదేశాలు</button>
+          <button class="filter-chip" data-cat="heritage">చరిత్రాత్మకం & కోటలు</button>
+          <button class="filter-chip" data-cat="waterfall">జలపాతాలు</button>
+          <button class="filter-chip" data-cat="spiritual">ఆధ్యాత్మిక క్షేత్రాలు</button>
+          <button class="filter-chip" data-cat="nature">ప్రకృతి & కొండలు</button>
+        </div>
+        <div class="sort-select-wrap">
+          <select id="sort-select">
+            <option value="popular">అత్యంత ప్రజాదరణ పొందినవి</option>
+            <option value="rating">ఉత్తమ రేటింగ్</option>
+            <option value="name">పేరు ఆధారంగా (అ-హ)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Places Grid Container -->
+      <div class="places-grid" id="places-container">
+        <!-- Dynamic Cards Inserted Here via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Tour Planner & Budget Estimator -->
+  <section id="planner" class="section bg-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">మీ <span class="gradient-text">స్మార్ట్ టూర్ ప్లానర్</span></h2>
+        <p class="section-desc">మీ పర్యటన రోజులు మరియు అభిరుచులకు అనుగుణంగా అంచనా వ్యయం మరియు ఇటినెరరీ రూపొందించుకోండి</p>
+      </div>
+
+      <div class="planner-wrapper card">
+        <form id="tour-planner-form">
+          <div class="planner-grid">
+            <div class="form-group">
+              <label for="trip-days">పర్యటన రోజుల సంఖ్య</label>
+              <select id="trip-days">
+                <option value="1">1 రోజు పర్యటన (డే ట్రైప్)</option>
+                <option value="2" selected>2 రోజులు / 1 రాత్రి</option>
+                <option value="3">3 రోజులు / 2 రాత్రులు</option>
+                <option value="5">5 రోజుల పూర్తి తెలంగాణ పర్యటన</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="travelers-type">ప్రయాణీకుల వివరాలు</label>
+              <select id="travelers-type">
+                <option value="solo">సోలో ప్రయాణం (ఒక్కరే)</option>
+                <option value="couple">జంటగా (Couple)</option>
+                <option value="family" selected>కుటుంబంతో (4 గురు)</option>
+                <option value="friends">స్నేహితుల బృందం (5-8 మంది)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="transport-mode">ప్రయాణ సాధనం</label>
+              <select id="transport-mode">
+                <option value="car" selected>సొంత / రెంటల్ కారు</option>
+                <option value="bus">TSRTC బస్సు / ప్రజా రవాణా</option>
+                <option value="bike">బైక్ రైడ్</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="preferred-type">ప్రధాన ఆసక్తి</label>
+              <select id="preferred-type">
+                <option value="mix" selected>మిశ్రమ పర్యటన (అన్నీ)</option>
+                <option value="heritage">చారిత్రక ప్రదేశాలు మాత్రమే</option>
+                <option value="nature">జలపాతాలు & ప్రకృతి శోభ</option>
+                <option value="spiritual">ఆధ్యాత్మిక యాత్ర</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-full">టూర్ ప్లాన్ మరియు ఖర్చు అంచనా వేయండి 🚀</button>
+        </form>
+
+        <!-- Dynamic Output Section -->
+        <div id="planner-result" class="planner-result hidden">
+          <hr class="divider">
+          <div class="result-header">
+            <h3>మీ అనుకూలీకరించిన పర్యటన ప్రణాళిక</h3>
+            <span class="budget-badge" id="estimated-cost">అంచనా ఖర్చు: ₹0</span>
+          </div>
+          <div class="itinerary-timeline" id="itinerary-list">
+            <!-- Dynamically populated timeline -->
+          </div>
+          <div class="planner-actions">
+            <button class="btn btn-ghost btn-sm" id="save-plan-btn">💾 ఈ ప్రణాళికను సేవ్ చేయండి</button>
+            <button class="btn btn-ghost btn-sm" id="print-plan-btn">🩻 ప్రింట్ / PDF తీసుకోండి</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Saved Destinations Section -->
+  <section id="saved" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">మీరు <span class="gradient-text">సేవ్ చేసిన ప్రదేశాలు</span></h2>
+        <p class="section-desc">తరువాత సందర్శించడానికి మీరు బుక్‌మార్క్ చేసుకున్న పర్యాటక ప్రాంతాలు</p>
+      </div>
+      <div id="saved-places-container" class="places-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Tourist Reviews Section -->
+  <section id="reviews" class="section bg-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">పర్యాటకుల <span class="gradient-text">అనుభవాలు & సమీక్షలు</span></h2>
+        <p class="section-desc">తెలంగాణను సందర్శించిన పర్యాటకులు ఏమంటున్నారో తెలుసుకోండి</p>
+      </div>
+
+      <div class="reviews-layout">
+        <!-- Review Submission Form -->
+        <div class="review-form-card card">
+          <h3>మీ పర్యటన అనుభవాన్ని పంచుకోండి ✍️</h3>
+          <form id="review-form">
+            <div class="form-group">
+              <label for="rev-name">మీ పేరు</label>
+              <input type="text" id="rev-name" placeholder="ఉదా: ప్రియా శర్మ" required />
+            </div>
+            <div class="form-group">
+              <label for="rev-place">సందర్శించిన ప్రదేశం</label>
+              <select id="rev-place" required>
+                <option value="చార్మినార్">చార్మినార్ (హైదరాబాద్)</option>
+                <option value="రామప్ప దేవాలయం">రామప్ప ఆలయం (పాలంపేట)</option>
+                <option value="బొగత జలపాతం">బొగత జలపాతం (ములుగు)</option>
+                <option value="గోల్కొండ కోట">గోల్కొండ కోట (హైదరాబాద్)</option>
+                <option value="అనంతగిరి కొండలు">అనంతగిరి కొండలు (వికారాబాద్)</option>
+                <option value="ఇతర ప్రాంతం">ఇతర ప్రాంతం</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="rev-rating">రేటింగ్ ఇవ్వండి</label>
+              <select id="rev-rating" required>
+                <option value="5">⭐⭐⭐⭐⭐ (5/5) - అద్భుతం</option>
+                <option value="4">⭐⭐⭐⭐ (4/5) - బాగుంది</option>
+                <option value="3">⭐⭐⭐ (3/5) - సాధారణం</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="rev-text">మీ అనుభవం</label>
+              <textarea id="rev-text" rows="3" placeholder="ప్రదేశం గురించి మీ అభిప్రాయాలు, రాకపోకల సౌకర్యాలు మరియు సూచనలు రాయండి..." required></textarea>
+            </div>
+            <button type="submit" class="btn">సమీక్షను సమర్పించండి</button>
+          </form>
+        </div>
+
+        <!-- Reviews Display Grid -->
+        <div class="reviews-list-grid" id="reviews-container">
+          <!-- Dynamic Review Cards -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Contacts & Helpline Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-card card">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <span class="badge">సహాయ కేంద్రం</span>
+            <h2>పర్యాటక <span class="gradient-text">సహాయక సమాచారం</span></h2>
+            <p>మీ తెలంగాణ పర్యటనను సురక్షితంగా మరియు సంతోషకరంగా మార్చడానికి మేము ఎల్లప్పుడూ సిద్ధంగా ఉన్నాము.</p>
+
+            <ul class="contact-details-list">
+              <li>
+                <span class="c-icon">📍</span>
+                <div>
+                  <strong>ప్రధాన కార్యాలయం:</strong>
+                  <p>నిజాంపేట్, హైదరాబాద్ - 500090, తెలంగాణ, భారతదేశం</p>
+                </div>
+              </li>
+              <li>
+                <span class="c-icon">📞</span>
+                <div>
+                  <strong>టోల్ ఫ్రీ హెల్ప్‌లైన్:</strong>
+                  <p>+91 40-2345-6789 / 1800-425-46464</p>
+                </div>
+              </li>
+              <li>
+                <span class="c-icon">✉️</span>
+                <div>
+                  <strong>ఈమెయిల్ మద్దతు:</strong>
+                  <p>hello@telanganatourism.in</p>
+                </div>
+              </li>
+              <li>
+                <span class="c-icon">🚓</span>
+                <div>
+                  <strong>టూరిస్ట్ పోలీసు సేవ:</strong>
+                  <p>100 లేదా 112 (అత్యవసర రక్షణ కోసం)</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="quick-inquiry-form">
+            <h3>సందేహాలు అడగండి 💬</h3>
+            <form id="inquiry-form">
+              <div class="form-group">
+                <input type="text" id="inq-name" placeholder="మీ పూర్తి పేరు" required />
+              </div>
+              <div class="form-group">
+                <input type="email" id="inq-email" placeholder="మీ ఈమెయిల్ ఐడీ" required />
+              </div>
+              <div class="form-group">
+                <input type="tel" id="inq-phone" placeholder="ఫోన్ నంబర్ (+91)" required />
+              </div>
+              <div class="form-group">
+                <textarea id="inq-msg" rows="3" placeholder="మీ సందేశం లేదా సందేహం ఇక్కడ టైప్ చేయండి..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-full">సందేశం పంపండి</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detail Modal -->
+  <div id="place-modal" class="modal-backdrop hidden">
+    <div class="modal-card card">
+      <button class="modal-close" id="modal-close-btn">&times;</button>
+      <div id="modal-body">
+        <!-- Dynamic content injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2025 తెలంగాణ పర్యాటక మార్గదర్శి | తెలంగాణ ప్రభుత్వ పర్యాటక శాఖ గుర్తింపు పొందిన సమాచారం</p>
+      <div class="footer-links">
+        <a href="#home">హోమ్</a>
+        <a href="#destinations">ప్రదేశాలు</a>
+        <a href="#planner">ప్లానర్</a>
+        <a href="#contact">సంప్రదించండి</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
